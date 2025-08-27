@@ -33,6 +33,11 @@ const resources = {
       PopularMachineriesForSale : "Popular Machineries for Sale",
       PopularTreesForSale :"Popular Trees for Sale",
       PopularAgro:"Popular Agro Chemicals for Sale",
+      otherProject:"Other Projects",
+      postDetails:"Posted : 2 days ago",
+      cardTitle:"Compact garden entrance",
+      postedBy:"Posted by",
+      cardCompanyName:"Evergreen Dreams Landscaping Inc.",
 
       // second navbar
       navbar: {
@@ -106,7 +111,12 @@ const resources = {
       PopularMachineriesForSale : "العناصر الشائعة في الآلات للبيع",
       PopularTreesForSale :"العناصر الشائعة في قسم الأشجار للبيع",
       PopularAgro:"العناصر الشائعة في الأسمدة للبيع",
-
+      otherProject:"قوائم أخرى",
+      postDetails:"تم النشر: منذ يومين",
+      cardTitle:"مدخل حديقة مدمجة",
+      postedBy:"تم النشر بواسطة",
+      cardCompanyName:"شركة أحلام إيفرجرين لتنسيق الحدائق.",
+      rating:"(٠٦ تقييمات)",
       // second navbar
       navbar: {
         "projects": "المشاريع",

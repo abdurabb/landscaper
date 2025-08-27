@@ -1,155 +1,184 @@
-import React, { useState } from 'react';
-import { Share2, Star, Calendar, MapPin, MessageCircle } from 'lucide-react';
+import React, { useState, useTransition } from 'react';
+import BusinessCard from '../../components/home/BusinessCard'
+import ProjectCard from '../../components/home/ProjectCard'
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
 
 const LandscapingDetailPage = () => {
-  const [selectedImage, setSelectedImage] = useState(0);
-  
+
+  const lang = useSelector((state) => state.language.lang);
+  const isArabic = lang === "ar";
+  const { t } = useTranslation();
+
   const images = [
     "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=400&fit=crop&crop=center",
     "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&h=400&fit=crop&crop=center",
-    "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop&crop=center"
+    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop"
   ];
 
+  const sampleProjects = [
+    {
+      id: 1,
+      title: {
+        en: "Areca palm project | GOOD SIZE g...",
+        ar: "مشروع نخيل الأريكا | حجم جيد ..."
+      },
+      company: {
+        en: "Lifescape Custom Landscaping Inc.",
+        ar: "لايفسكيب لتنسيق الحدائق حسب الطلب"
+      },
+      images: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=250&fit=crop"
+    },
+    {
+      id: 2,
+      title: {
+        en: "Garden Maintenance Project",
+        ar: "مشروع صيانة الحديقة"
+      },
+      company: {
+        en: "Green Roots Landscaping",
+        ar: "جذور خضراء لتنسيق الحدائق"
+      },
+      images: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop"
+    },
+    {
+      id: 3,
+      title: {
+        en: "Tropical Tree Installation",
+        ar: "تركيب الأشجار الاستوائية"
+      },
+      company: {
+        en: "EcoGreen Projects",
+        ar: "مشاريع إيكو جرين"
+      },
+      images: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&h=400&fit=crop&crop=center"
+    },
+    {
+      id: 4,
+      title: {
+        en: "Tropical Tree Installation",
+        ar: "تركيب الأشجار الاستوائية"
+      },
+      company: {
+        en: "EcoGreen Projects",
+        ar: "مشاريع إيكو جرين"
+      },
+      images: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&h=400&fit=crop&crop=center"
+    },
+    {
+      id: 5,
+      title: {
+        en: "Tropical Tree Installation",
+        ar: "تركيب الأشجار الاستوائية"
+      },
+      company: {
+        en: "EcoGreen Projects",
+        ar: "مشاريع إيكو جرين"
+      },
+      images: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&h=400&fit=crop&crop=center"
+    },
+    {
+      id: 6,
+      title: {
+        en: "Tropical Tree Installation",
+        ar: "تركيب الأشجار الاستوائية"
+      },
+      company: {
+        en: "EcoGreen Projects",
+        ar: "مشاريع إيكو جرين"
+      },
+      images: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&h=400&fit=crop&crop=center"
+    }
+  ];
+
+
   return (
-    <div className="max-w-7xl  mx-auto p-4 bg-gray-50 m-4">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
-        {/* Left Column - Images and Content */}
-        <div className="lg:col-span-2 space-y-6">
-          
-          {/* Image Gallery */}
-          <div className="bg-white rounded-lg overflow-hidden shadow-sm">
-            <div className="relative">
-              <img 
-                src={images[selectedImage]} 
-                alt="Landscaping project"
-                className="w-full h-80 object-cover"
+    <div className="max-w-7xl mx-auto p-4 bg-[#FFFFFF] m-4" dir={isArabic ? "rtl" : "ltr"}>
+      <div className="bg-[#FFFFFF] rounded-lg overflow-hidden  p-4">
+        <div className="flex flex-col md:flex-row gap-4">
+          {/* Left / Top Image */}
+          <div className="w-full md:w-2/3 relative">
+            <img
+              src={images[0]}
+              alt="Main selected"
+              className="w-full h-full max-h-[500px] object-cover rounded-lg"
+            />
+          </div>
+
+          {/* Right / Bottom Thumbnails */}
+          <div className="w-full   md:w-1/3 flex md:flex-col flex-row gap-1 md:gap-4">
+            {images.slice(1).map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Thumbnail ${index + 1}`}
+                className="w-1/2 md:w-full h-48 object-cover rounded-lg cursor-pointer transition-all"
               />
-              <div className="absolute bottom-4 right-4 bg-black bg-opacity-60 text-white px-2 py-1 rounded text-sm">
-                11
-              </div>
-            </div>
-            
-            {/* Thumbnail Gallery */}
-            <div className="p-4">
-              <div className="flex gap-3 overflow-x-auto">
-                {images.map((img, index) => (
-                  <img
-                    key={index}
-                    src={img}
-                    alt={`Thumbnail ${index + 1}`}
-                    className={`w-20 h-16 object-cover rounded cursor-pointer flex-shrink-0 transition-all ${
-                      selectedImage === index ? 'ring-2 ring-green-500' : 'opacity-70 hover:opacity-100'
-                    }`}
-                    onClick={() => setSelectedImage(index)}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Specifications */}
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Specifications</h2>
-            
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <span className="text-gray-600 block mb-1">Type</span>
-                <span className="font-medium text-gray-900">Landscape works</span>
-              </div>
-              <div>
-                <span className="text-gray-600 block mb-1">Sq. ft</span>
-                <span className="font-medium text-gray-900">---</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Detailed Description */}
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Detailed Description</h2>
-            <p className="text-gray-700 leading-relaxed">
-              Welcome to GreenScape Solutions, your go-to landscaper for all things artificial grass! 
-              We offer a wide range of options, from budget-friendly to premium quality, ensuring that 
-              you find the perfect fit for your outdoor space.
-            </p>
+            ))}
           </div>
         </div>
 
-        {/* Right Column - Business Profile */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-lg p-6 shadow-sm sticky top-4">
-            
-            {/* Post Info */}
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-sm text-gray-500">Posted • 2days ago</span>
-              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-                <Share2 className="w-4 h-4 text-gray-600" />
-              </button>
-            </div>
 
-            {/* Title */}
-            <h1 className="text-xl font-semibold text-gray-900 mb-6">
-              Compact garden entrance
-            </h1>
+        {/* specifications and card */}
+        <div className='grid grid-cols-1 md:grid-cols-2 py-6'>
+          <div className='  '>
+            <h1 className='text-[#374151] text-2xl font-poppins mt-3 md:mt-6' >Specifications</h1>
+            {/* specifications */}
+            <div className='grid grid-cols-2'>
+              <div className="flex flex-col md:flex-row md:items-center border-r-2 p-1 border-[#D9D9D9]">
+                <span className="text-gray-600 md:min-w-[100px]">Type</span>
+                <span className="text-gray-800 mt-1 md:mt-0 md:ml-6">Landscape works</span>
+              </div>
 
-            {/* Posted By */}
-            <div className="mb-6">
-              <span className="text-sm text-gray-500 block mb-3">Posted by</span>
-              
-              {/* Business Profile */}
-              <div className="flex items-start gap-3">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                    <div className="w-6 h-6 bg-green-600 rounded-full"></div>
-                  </div>
-                </div>
-                
-                <div className="flex-1">
-                  <h3 className="font-medium text-gray-900 text-sm">
-                    Evergreen Dreams Landscaping Inc.
-                  </h3>
-                  
-                  {/* Rating */}
-                  <div className="flex items-center gap-1 mt-1">
-                    <span className="text-lg font-semibold text-gray-900">5.0</span>
-                    <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm text-gray-500">(06 Ratings)</span>
-                  </div>
-                </div>
+              <div className="flex  p-1 ">
+                <span className="text-gray-600 min-w-[80px]">Sq. ft</span>
+                <span className="text-gray-800 ml-6">---</span>
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="space-y-3">
-              <button className="w-full py-2.5 text-green-600 font-medium border border-green-600 rounded-lg hover:bg-green-50 transition-colors">
-                Rate This Business
-              </button>
-              
-              <button className="w-full py-2.5 text-green-600 font-medium border border-green-600 rounded-lg hover:bg-green-50 transition-colors">
-                View All Listings
-              </button>
-              
-              <button className="w-full py-2.5 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors">
-                Enquiry
-              </button>
+            {/* description */}
+            <div className='mt-2 md:mt-8'>
+              <h1 className='text-2xl font-poppins text-[#374151]'>
+                Detailed Description
+              </h1>
+              <p className='mt-1 md:mt-3 text-sm md:text-1xl  text-[#374151] font-poppins'>
+                Welcome to GreenScape Solutions, your go-to landscaper for all things artificial grass! We offer a wide range of options, from budget-friendly to premium quality, ensuring that you find the perfect fit for your outdoor space.
+              </p>
             </div>
+          </div>
 
-            {/* Additional Info */}
-            <div className="mt-6 pt-6 border-t border-gray-200">
-              <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
-                <MapPin className="w-4 h-4" />
-                <span>Sharjah, UAE</span>
+
+          {/* second card */}
+          <div className='p-0 md:p-2 w-full '>
+            <BusinessCard />
+          </div>
+        </div>
+
+        {/* other projects */}
+        <div className='mt-2 md:mt-6 ' >
+          <h1 className='text-2xl pl-1 text-[#374151] font-poppins' >{t('otherProject')}</h1>
+          <div
+            className="flex overflow-x-auto hide-scrollbar space-x-0 md:space-x-3  "
+          >
+            {sampleProjects.map((product) => (
+              <div
+                key={product.id}
+                className="flex-shrink-0 "
+              >
+                <ProjectCard product={product} />
               </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <MessageCircle className="w-4 h-4" />
-                <span>Available for consultation</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </div>
+
   );
 };
 
 export default LandscapingDetailPage;
+
+
+
+

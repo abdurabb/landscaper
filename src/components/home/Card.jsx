@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 function ProductCard({ product }) {
+    const navigate = useNavigate()
     const lang = useSelector((state) => state.language.lang);
     const isArabic = lang === "ar";
 
@@ -125,6 +127,7 @@ function ProductCard({ product }) {
 
 
             <div
+                onClick={() => { navigate('/details') }}
                 className={`w-full bg-[#0C7A1F] text-white text-xs text-center overflow-hidden transition-all duration-300
     ${isHovered ? 'py-4 max-h-12' : 'py-0 max-h-0'}`}
             >
