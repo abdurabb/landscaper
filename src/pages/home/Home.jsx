@@ -5,6 +5,7 @@ import PopularMachineries from '../../components/home/PopularMachineries'
 import PopularMachineriesForStore from '../../components/home/PopularMachineriesForSale'
 import PopularTreeForSale from '../../components/home/PopularTreeForSale'
 import PopularAgro from '../../components/home/PopularAgro'
+import ShowPostCard from '../../components/home/ShowPostCard'
 
 
 function Home() {
@@ -16,6 +17,7 @@ function Home() {
       <PopularMachineriesForStore />
       <PopularTreeForSale />
       <PopularAgro />
+      <ShowPostCard />
     </>
   )
 }

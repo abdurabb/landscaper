@@ -48,6 +48,7 @@ const resources = {
       sqFt: "Sq. ft",
       detailPageDescriptionHead: "Detailed Description",
       detailDescription: "Welcome to GreenScape Solutions, your go-to landscaper for all things artificial grass! We offer a wide range of options, from budget-friendly to premium quality, ensuring that you find the perfect fit for your outdoor space.",
+      showPost:"Trending Posts in Forum",
 
       // second navbar
       navbar: {
@@ -136,7 +137,7 @@ const resources = {
       sqFt: "قدم مربع",
       detailPageDescriptionHead: "وصف مفصل",
       detailDescription: "مرحبًا بكم في حلول GreenScape، المقاول الخاص بكم لكل ما يتعلق بالعشب الصناعي! نقدم مجموعة واسعة من الخيارات، من الاقتصادية إلى عالية الجودة، لضمان أن تجد ما يناسب مساحتك الخارجية.",
-
+      showPost:"المشاركات الرائجة في المنتدى",
 
       // second navbar
       navbar: {
