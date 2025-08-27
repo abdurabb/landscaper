@@ -155,7 +155,7 @@ const LandscapingDetailPage = () => {
             )}
           </span>
 
-          <span className="text-sm text-gray-700">Details</span>
+          <span className="text-sm text-gray-700">{isArabic? "تفاصيل" :"Details"}</span>
         </div>
 
 
