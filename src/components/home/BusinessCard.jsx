@@ -10,8 +10,8 @@ function BusinessCard() {
 
     return (
         <div
-        dir={isArabic ? "rtl" : "ltr"}
-        className="w-full  rounded-xl bg-white shadow-lg p-4 space-y-4 md:space-y-4 space-x-8 md:space-x-4">
+            dir={isArabic ? "rtl" : "ltr"}
+            className="w-full  rounded-xl bg-white shadow-lg p-4 space-y-4 md:space-y-4 space-x-8 md:space-x-4">
             {/* Posted info */}
             <div className="flex justify-between">
                 <p className="text-xs text-gray-500">{t('postDetails')}</p>
@@ -48,7 +48,7 @@ function BusinessCard() {
             <h1 className="text-sm text-[#9E9E9E]">{t('postedBy')}</h1>
             <div className="flex items-start gap-3">
                 <img
-                    src="/logo.png"
+                    src="/Landscaper company logo.png"
                     alt="Company Logo"
                     className=" w-10 md:w-14 h-10 md:h-14 rounded-full border"
                 />
@@ -62,18 +62,16 @@ function BusinessCard() {
                         <span className="ml-1">{t('rating')}</span>
                     </div>
                     <div className="flex gap-1 md:gap-3 text-sm text-green-700 font-medium mt-1">
-                        <button className="hover:underline">Rate This Business</button>
+                        <button className="hover:underline">{t('rateForBusiness')}</button>
                         <span>|</span>
-                        <button className="hover:underline">View All Listings</button>
+                        <button className="hover:underline">{t('viewLists')}</button>
                     </div>
                 </div>
-
-
             </div>
 
             {/* Enquiry button */}
             <button className="w-full bg-green-50 text-green-700 py-2 rounded-md font-medium border border-green-100 hover:bg-green-100">
-                Enquiry
+                {t('enquiry')}
             </button>
         </div>
     );

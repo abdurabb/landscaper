@@ -131,7 +131,7 @@ function ProductCard({ product }) {
                 className={`w-full bg-[#0C7A1F] text-white text-xs text-center overflow-hidden transition-all duration-300
     ${isHovered ? 'py-4 max-h-12' : 'py-0 max-h-0'}`}
             >
-                {isArabic ? "سؤال" : "Enquiry"}
+                {isArabic ? "استفسار" : "Enquiry"}
             </div>
         </div>
 

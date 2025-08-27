@@ -123,16 +123,16 @@ const LandscapingDetailPage = () => {
         {/* specifications and card */}
         <div className='grid grid-cols-1 md:grid-cols-2 py-6'>
           <div className='  '>
-            <h1 className='text-[#374151] text-2xl font-poppins mt-3 md:mt-6' >Specifications</h1>
+            <h1 className='text-[#374151] text-2xl font-poppins mt-3 md:mt-6' >{t('specification')}</h1>
             {/* specifications */}
             <div className='grid grid-cols-2'>
-              <div className="flex flex-col md:flex-row md:items-center border-r-2 p-1 border-[#D9D9D9]">
-                <span className="text-gray-600 md:min-w-[100px]">Type</span>
-                <span className="text-gray-800 mt-1 md:mt-0 md:ml-6">Landscape works</span>
+              <div className={`flex flex-col md:flex-row md:items-center ${isArabic ? "border-l-2" : "border-r-2 "} p-1 border-[#D9D9D9]`}>
+                <span className="text-gray-600 md:min-w-[100px]">{t('type')}</span>
+                <span className="text-gray-800 mt-1 md:mt-0 md:ml-6">{t('typeValue')}</span>
               </div>
 
               <div className="flex  p-1 ">
-                <span className="text-gray-600 min-w-[80px]">Sq. ft</span>
+                <span className="text-gray-600 min-w-[80px]">{t('sqFt')}</span>
                 <span className="text-gray-800 ml-6">---</span>
               </div>
             </div>
@@ -140,10 +140,10 @@ const LandscapingDetailPage = () => {
             {/* description */}
             <div className='mt-2 md:mt-8'>
               <h1 className='text-2xl font-poppins text-[#374151]'>
-                Detailed Description
+                {t('detailPageDescriptionHead')}
               </h1>
               <p className='mt-1 md:mt-3 text-sm md:text-1xl  text-[#374151] font-poppins'>
-                Welcome to GreenScape Solutions, your go-to landscaper for all things artificial grass! We offer a wide range of options, from budget-friendly to premium quality, ensuring that you find the perfect fit for your outdoor space.
+                {t('detailDescription')}
               </p>
             </div>
           </div>
