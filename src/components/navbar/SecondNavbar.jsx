@@ -81,7 +81,8 @@ function SecondNavbar() {
             {
                 navbarOpen && (
                     <>
-                        <div className=" px-4 py-1  bg-[#F9FAFB]">
+                        <div className=" px-4 py-1  bg-[#F9FAFB] "
+                            dir={isArabic ? "rtl" : "ltr"}>
                             <ul className='md:flex gap-4 md:gap-12'>
                                 <span className='flex gap-2'>
                                     <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
