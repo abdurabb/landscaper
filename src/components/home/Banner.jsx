@@ -65,7 +65,7 @@ function Banner() {
                         {/* Emirates Dropdown */}
                         <div className={`relative bg-white  ${isArabic ? "rounded-r-lg" : "rounded-l-lg"} p-1`}>
                             <div className="flex items-center px-0 py-2">
-                                <MapPin className="w-4 h-4 text-gray-500 mr-1" />
+                                <MapPin className="w-4 h-4 text-gray-500 " />
                                 <select className="bg-transparent border-none outline-none text-gray-700 text-sm font-medium pr-0 ">
                                     {emirates.map((emirate, index) => (
                                         <option key={index} value={emirate}>{emirate}</option>
